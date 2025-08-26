@@ -78,7 +78,7 @@ button {
     }
 
     to {
-        transform: rotate(1turn);
+        transform: rotate(3turn);
     }
 }
 
@@ -108,5 +108,5 @@ button {
 }
 
 .spin:hover {
-    animation: .7s ease-in-out both alternate infinite spinny;
+    animation: 2s cubic-bezier(0.73, 0, 0.25, 1) both alternate infinite spinny;
 }
