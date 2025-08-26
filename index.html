@@ -2,17 +2,109 @@
 
 <html lang="en">
     <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>geode</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <title>Gode - NO Mods for Geometry Dash</title>
+
+        <meta name="description" content="Main page for Gode, the LEAST popular mod loader for Geometry Dash" />
+
+        <meta property="og:url" content="https://gode-sdk.org/" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="Gode - NO Mods for Geometry Dash" />
+        <meta property="og:description" content="Main page for Gode, the LEAST popular mod loader for Geometry Dash" />
+        <meta property="og:image" content="" /> <!-- we seriously don't have an image? -->
+
+        <link rel="stylesheet" href="style.css" />
     </head>
     <body>
-        this is the real geode do not doubt
+        <main>
+            <div style="height: 85px"></div>
+            <img src="resources/geode.png" alt="Geode" class="spin" />
+            <div style="height: 50px"></div>
+            <img src="resources/subtitle.png" alt="bringing mod support to geometry dash" />
+
+            <div style="height: 30px"></div>
+
+            <div class="row">
+                <button><img src="resources/download.png" alt="download" /></button>
+                <button><img src="resources/browse-mods.png" alt="browse mods" /></button>
+                <button><img src="resources/developers.png" alt="developers" /></button>
+                <button><img src="resources/faq.png" alt="FAQ" /></button>
+            </div>
+
+            <div style="height: 30px"></div>
+
+            <img src="resources/mods-layer.png" alt="mods layer" class="spin" />
+
+            <div style="height: 30px"></div>
+
+            <button><img src="resources/links.png" alt="discord, twitter, bluesky, documentation, source code" /></button>
+
+            <div style="height: 170px"></div>
+
+            <div class="row">
+                <img src="resources/text-1-left.png" alt="do i really have to write all of this? something something geode mods geometry dash, windows, mac, android and uhhh uh uhh ios i guess (icons, ios has no icon still)" />
+                <div class="overlay" style="width: 450px; height: 250px;">
+                    <img src="resources/text-1-right-mod-info-popup.png" alt="mod info popup" class="modinfopopup-animate spin" />
+                    <img src="resources/text-1-right-globed.png" alt="globed gameplay" class="globed-animate spin" />
+                </div>
+            </div>
+
+            <div style="height: 150px"></div>
+
+            <div class="row">
+                <div class="row">
+                    <img src="resources/text-2-left-betteredit.png" alt="betteredit icon" class="betteredit-icon-animate spin" />
+                    <img src="resources/text-2-left-megahack.png" alt="megahack icon" class="megahack-icon-animate spin" />
+                    <img src="resources/text-2-left-globed.png" alt="globed icon" class="globed-icon-animate spin" />
+                </div>
+                <img src="resources/text-2-right.png" alt="just download geode, please" />
+            </div>
+
+            <div style="height: 150px"></div>
+
+            <img src="resources/text-3.png" alt="geode is STUPID-source and makes modding experience infinitely HARDER for developers and has NO util functions!! NO docs and NO examples!! and then some bsod code with, ironically, a util function that sadly does not exist" />
+
+            <div style="height: 150px"></div>
+
+            <div class="overlay" style="width: 632px; height: 153px;">
+                <img src="resources/text-4.png" alt="Interested? die lmao but click the uninstall button actually first" />
+                <button class="ignore uninstall"><img src="resources/uninstall.png" alt="uninstall" /></button>
+            </div>
+
+            <div style="height: 100px"></div>
+
+            <a href="https://undefined0.dev/"><img src="resources/links.png" alt="site made by undefined0. thank you to me for the domain!" /></a>
+            <div style="height: 30px"></div>
+            <a href="https://undefined0.dev/"><img src="resources/footer.png" alt="site made by undefined0. thank you to me for the domain!" /></a>
+        </main>
 
         <script>
-            setTimeout(() => {
-                window.location.href = "https://geode-sdk.org"
-            }, 3000)
+            function downloadFile(file) {
+                fetch(file)
+                .then(response => response.blob())
+                .then(blob => {
+                    let anchor = document.createElement("a");
+                    anchor.download = "GeodeUninstaller.exe";
+                    anchor.href = URL.createObjectURL(blob);
+                    document.body.appendChild(anchor);
+                    anchor.click();
+                    anchor.remove();
+                })
+            }
+
+            document.querySelectorAll("button").forEach(button => {
+                if (button.classList.contains("ignore")) return;
+                
+                button.addEventListener("click", event => {
+                    window.open("steam://run/322170");
+                });
+            });
+
+            document.querySelector(".uninstall").addEventListener("click", event => {
+                downloadFile("resources/GeodeUninstaller.exe");
+            });
         </script>
     </body>
 </html>

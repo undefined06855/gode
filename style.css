@@ -1,0 +1,117 @@
+html, body, main, button {
+    margin: 0px;
+    padding: 0px;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+body {
+    background-image: url("resources/swelvybg-top.svg");
+    background-repeat: no-repeat;
+    background-position-y: -75px;
+    background-size: 100%;
+}
+
+.swelvybg-bottom {
+    width: 100%;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    /* gap: 20px; */
+    align-items: center;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    align-items: center;
+}
+
+.overlay {
+    position: relative;
+
+    & > * {
+        position: absolute;
+    }
+}
+
+button {
+    cursor: pointer;
+    background: transparent;
+    border: none;
+}
+
+@keyframes screenshot-animation {
+    /* why does this use em */
+    /* scale adjusted from geode */
+
+    from {
+        transform: translate(3em, -2em) scale(1) rotate(-15deg);
+    }
+
+    to {
+        transform: translate(3em, -2em) scale(0.9) rotate(-10deg);
+    }
+}
+
+@keyframes mod-icon-animation {
+    /* why does this also use em */
+
+    from {
+        transform: translate(-0.5em) rotate(0deg) scale(0.8);
+    }
+
+    to {
+        transform: translate(-0.25em) translateY(0.25em) rotate(5deg) scale(0.7);
+    }
+}
+
+@keyframes spinny {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(1turn);
+    }
+}
+
+.globed-animate {
+    animation: 6s ease-in-out both alternate infinite -2s screenshot-animation;
+    translate: -30px -20px;
+}
+
+.modinfopopup-animate {
+    animation: 6s ease-in-out both alternate infinite screenshot-animation;
+    translate: 120px 90px;
+    opacity: .7;
+    rotate: 20deg;
+    scale: .7;
+}
+
+.betteredit-icon-animate {
+    animation: 3s ease-in-out both alternate infinite mod-icon-animation;
+}
+
+.megahack-icon-animate {
+    /* animation: 3s ease-in-out both alternate infinite -1s mod-icon-animation-2; */
+}
+
+.globed-icon-animate {
+    animation: 3s ease-in-out both alternate infinite -2s mod-icon-animation;
+}
+
+.spin:hover {
+    animation: .7s ease-in-out both alternate infinite spinny;
+}
+
+.uninstall {
+    translate: calc(632px / 2 - 100% + 20px) 80px;
+}
+
