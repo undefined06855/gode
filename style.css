@@ -110,3 +110,21 @@ button {
 .spin:hover {
     animation: 2s cubic-bezier(0.73, 0, 0.25, 1) both alternate infinite spinny;
 }
+
+.overlay-top-left {
+    position: fixed;
+    left: 20px;
+}
+
+.overlay-top-right {
+    position: fixed;
+    right: 20px;
+}
+
+.overlay-top-left, .overlay-top-right {
+    top: 20px;
+
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+}
