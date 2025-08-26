@@ -70,40 +70,22 @@
 
             <div class="overlay" style="width: 632px; height: 153px;">
                 <img src="resources/text-4.png" alt="Interested? die lmao but click the uninstall button actually first" />
-                <button class="ignore uninstall"><img src="resources/uninstall.png" alt="uninstall" /></button>
             </div>
 
             <div style="height: 100px"></div>
 
-            <a href="https://undefined0.dev/"><img src="resources/links.png" alt="site made by undefined0. thank you to me for the domain!" /></a>
+            <a href="https://undefined0.dev/"><img src="resources/links.png" alt="discord, twitter, bluesky, documentation, source code" /></a>
             <div style="height: 30px"></div>
             <a href="https://undefined0.dev/"><img src="resources/footer.png" alt="site made by undefined0. thank you to me for the domain!" /></a>
         </main>
 
         <script>
-            function downloadFile(file) {
-                fetch(file)
-                .then(response => response.blob())
-                .then(blob => {
-                    let anchor = document.createElement("a");
-                    anchor.download = "GeodeUninstaller.exe";
-                    anchor.href = URL.createObjectURL(blob);
-                    document.body.appendChild(anchor);
-                    anchor.click();
-                    anchor.remove();
-                })
-            }
-
             document.querySelectorAll("button").forEach(button => {
                 if (button.classList.contains("ignore")) return;
                 
                 button.addEventListener("click", event => {
                     window.open("steam://run/322170");
                 });
-            });
-
-            document.querySelector(".uninstall").addEventListener("click", event => {
-                downloadFile("resources/GeodeUninstaller.exe");
             });
         </script>
     </body>

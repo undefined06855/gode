@@ -110,8 +110,3 @@ button {
 .spin:hover {
     animation: .7s ease-in-out both alternate infinite spinny;
 }
-
-.uninstall {
-    translate: calc(632px / 2 - 100% + 20px) 80px;
-}
-
