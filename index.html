@@ -91,7 +91,6 @@
         </div>
 
         <div id="soggy-overlay">
-            <img src="resources/cat.png" alt="soggy cat overlay" />
         </div>
 
         <script>
@@ -104,10 +103,13 @@
             });
 
             document.querySelector("#soggy").addEventListener("click", event => {
-                document.querySelector("#soggy-overlay").style.animation = "";
-                requestAnimationFrame(() => {
-                    document.querySelector("#soggy-overlay").style.animation = "flashbang 1s linear";
-                });
+                let bang = document.createElement("img");
+                bang.src = "resources/cat.png";
+                bang.classList.add("soggy-overlay");
+                document.body.appendChild(bang);
+                setTimeout(() => {
+                    bang.remove();
+                }, 1000);
             });
         </script>
     </body>
