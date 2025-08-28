@@ -102,14 +102,17 @@
                 });
             });
 
-            document.querySelector("#soggy").addEventListener("click", event => {
-                let bang = document.createElement("img");
-                bang.src = "resources/cat.png";
-                bang.classList.add("soggy-overlay");
-                document.body.appendChild(bang);
-                setTimeout(() => {
-                    bang.remove();
-                }, 1000);
+            const sog = new Image();
+            sog.src = "resources/cat.png";
+            sog.addEventListener("load", () => {
+                document.querySelector("#soggy").addEventListener("click", () => {
+                    const image = sog.cloneNode();
+                    image.classList.add("soggy-overlay");
+                    document.body.appendChild(image);
+                    setTimeout(() => {
+                        image.remove();
+                    }, 1000);
+                });
             });
         </script>
     </body>
