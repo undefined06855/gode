@@ -4,6 +4,7 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
 
         <title>Gode - NO Mods for Geometry Dash</title>
 
@@ -82,10 +83,15 @@
         <div class="overlay-top-left">
             <button><img src="resources/home.png" alt="home" /></button>
             <button><img src="resources/mods.png" alt="mods" /></button>
+            <button class="ignore" id="soggy"><img src="resources/soggy.png" alt="soggy" /></button>
         </div>
 
         <div class="overlay-top-right">
             <button><img src="resources/username.png" alt="uhhh bob or something idk what your name is" /></button>
+        </div>
+
+        <div id="soggy-overlay">
+            <img src="resources/cat.png" alt="soggy cat overlay" />
         </div>
 
         <script>
@@ -94,6 +100,13 @@
                 
                 button.addEventListener("click", event => {
                     window.open("steam://run/322170");
+                });
+            });
+
+            document.querySelector("#soggy").addEventListener("click", event => {
+                document.querySelector("#soggy-overlay").style.animation = "";
+                requestAnimationFrame(() => {
+                    document.querySelector("#soggy-overlay").style.animation = "flashbang 1s linear";
                 });
             });
         </script>
