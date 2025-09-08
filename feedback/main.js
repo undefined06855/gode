@@ -50,7 +50,16 @@ Bun.serve({
 
             const messagesString = messages.map(
                 (message, i) => 
-                        `<marquee behavior="alternate" scrolldelay="${Math.random()*500}" direction="right" style="padding-left: ${i*20}px">${message.Message.replaceAll("\n", "<br/>")}</marquee>`
+                        `
+<marquee
+    behavior="alternate"
+    scrolldelay="${Math.random()*500}"
+    direction="right"
+    style="padding-left: ${i*20}px; font-size: ${Math.random() * 30 + 10}px;"
+>
+${message.Message.replaceAll("\n", "<br/>")}
+</marquee>
+                        `
             ).join("\n");
             
             return new Response(
