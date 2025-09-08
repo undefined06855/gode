@@ -36,7 +36,12 @@ Bun.serve({
                 const safe = he.encode(req.body.text());
                 insert.run(safe);
 
-                return new Response("donezo funzo");
+                return new Response(
+                    "donezo funzo",
+                    {
+                        headers: { "Access-Control-Allow-Origin": "*" }
+                    }
+                );
             },
             "GET": Response.redirect("/feedback")
         },
