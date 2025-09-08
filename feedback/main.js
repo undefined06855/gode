@@ -4,7 +4,7 @@ import * as he from "he"
 const db = new Database("messages.sqlite");
 db.run(`
 CREATE TABLE IF NOT EXISTS Messages (
-    Message       STRING PRIMARY KEY,
+    Message       STRING PRIMARY KEY
 )
 `);
 
