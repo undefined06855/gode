@@ -1,7 +1,7 @@
 import { Database } from "bun:sqlite"
 import * as he from "he"
 
-const db = new Database("storage/database.sqlite");
+const db = new Database("messages.sqlite");
 db.run(`
 CREATE TABLE IF NOT EXISTS Messages (
     Message       STRING PRIMARY KEY,
