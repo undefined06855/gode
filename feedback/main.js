@@ -56,7 +56,7 @@ Bun.serve({
             return new Response(
                 html.replace("{{{content}}}", messagesString),
                 {
-                    headers: { "Content-Type": "text/html" }
+                    headers: { "Content-Type": "text/html", "Access-Control-Allow-Origin": "*" }
                 }
             );
         }
