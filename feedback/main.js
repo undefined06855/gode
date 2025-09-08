@@ -35,10 +35,11 @@ Bun.serve({
                 insert.run(safe);
 
                 return new Response("donezo funzo");
-            }
+            },
+            "GET": new Response.redirect("/feedback")
         },
 
-        "/list": req => {
+        "/feedback": req => {
             const messages = query.all();
 
             const messagesString = messages.map(
