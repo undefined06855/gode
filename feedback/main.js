@@ -1,0 +1,55 @@
+import { Database } from "bun:sqlite"
+import * as he from "he"
+
+const db = new Database("storage/database.sqlite");
+db.run(`
+CREATE TABLE IF NOT EXISTS Messages (
+    Message       STRING PRIMARY KEY,
+)
+`);
+
+const insert = db.prepare("INSERT INTO Messages VALUES (?)");
+const query = db.prepare("SELECT * FROM Messages");
+
+const html = `
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        
+        <title>Feedback</title>
+    </head>
+    <body>
+        {{{content}}}
+    </body>
+</html>
+`;
+
+Bun.serve({
+    routes: {
+        "/": {
+            "POST": req => {
+                const safe = he.encode(req.body.text());
+                insert.run(safe);
+
+                return new Response("donezo funzo");
+            }
+        },
+
+        "/list": req => {
+            const messages = query.all();
+
+            const messagesString = messages.map(
+                message => `<marquee behavior="alternate" scrolldelay="200" direction="right">${message}</marquee>`
+            ).join("\n");
+            
+            return new Response(
+                html.replace("{{{content}}}", messagesString)
+            );
+        }
+    },
+
+    port: 2003
+});

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Gode SDK Feedback</title>
+
+        <style>
+            html {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                height: 100%;
+            }
+            
+            body {
+                display: flex;
+                gap: 5px;
+            }
+
+            textarea {
+                min-width: 300px;
+                height: 309px;
+                resize: none;
+                flex: 1;
+            }
+        </style>
+    </head>
+    <body>
+        <img src="resources/form.png" alt="Feedback Form" />
+        <textarea>
+great website
+
+yours truly,
+- your name here
+</textarea>
+        <button>submi</button>
+
+        <script>
+            document.querySelector("button").addEventListener("click", () => {
+                fetch("https://feedback-server.gode-sdk.org/", {
+                    body: document.querySelector("textarea").innerText,
+                    method: "POST"
+                });
+
+                document.querySelector("button").innerText = "submited";
+            });
+        </script>
+    </body>
+</html>
