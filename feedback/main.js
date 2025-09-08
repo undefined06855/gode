@@ -47,7 +47,10 @@ Bun.serve({
             ).join("\n");
             
             return new Response(
-                html.replace("{{{content}}}", messagesString)
+                html.replace("{{{content}}}", messagesString),
+                {
+                    headers: { "Content-Type": "text/html" }
+                }
             );
         }
     },
