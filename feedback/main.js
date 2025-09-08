@@ -9,7 +9,7 @@ CREATE TABLE IF NOT EXISTS Messages (
 `);
 
 const insert = db.prepare("INSERT INTO Messages VALUES (?)");
-const query = db.prepare("SELECT Message FROM Messages");
+const query = db.prepare("SELECT Message FROM Messages ORDER BY RANDOM()");
 
 const html = `
 <!DOCTYPE html>
@@ -55,7 +55,7 @@ Bun.serve({
     behavior="alternate"
     scrolldelay="${Math.random()*500}"
     direction="right"
-    style="padding-left: ${i*20}px; font-size: ${(Math.random() * 30 * (1000 / message.Message.length))}px;"
+    style="padding-left: ${i*20}px; font-size: ${(Math.random() * 30 * (1 - (message.Message.length / 1000)))}px;"
 >
 ${message.Message.replaceAll("\n", "<br/>")}
 </marquee>
