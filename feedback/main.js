@@ -49,7 +49,7 @@ Bun.serve({
             const messages = query.all();
 
             const messagesString = messages.map(
-                message => `<marquee behavior="alternate" scrolldelay="200" direction="right">${message}</marquee>`
+                message => `<marquee behavior="alternate" scrolldelay="200" direction="right">${message.Message}</marquee>`
             ).join("\n");
             
             return new Response(
