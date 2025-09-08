@@ -31,6 +31,8 @@ Bun.serve({
     routes: {
         "/": {
             "POST": req => {
+                if (!req.body) return new Response("no body?");
+
                 const safe = he.encode(req.body.text());
                 insert.run(safe);
 
