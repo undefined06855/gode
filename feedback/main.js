@@ -30,16 +30,15 @@ const html = `
 Bun.serve({
     routes: {
         "/": {
-            "POST": req => {
-                if (!req.body) return new Response("no body?");
+            "POST": async req => {
+                if (!req.body) return new Response("no body?", { headers: { "Access-Control-Allow-Origin": "*" } });
 
-                const safe = he.encode(req.body.text());
+                const safe = he.encode(await req.body.text());
                 insert.run(safe);
 
                 return new Response("donezo funzo", { headers: { "Access-Control-Allow-Origin": "*" } });
             },
-            "GET": Response.redirect("/feedback"),
-            "OPTIONS": new Response("", { headers: { "Access-Control-Allow-Origin": "*" } })
+            "GET": Response.redirect("/feedback")
         },
 
         "/feedback": req => {
