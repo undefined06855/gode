@@ -41,7 +41,7 @@ yours truly,
         <script>
             document.querySelector("button").addEventListener("click", () => {
                 fetch("https://feedback-server.gode-sdk.org/", {
-                    body: document.querySelector("textarea").innerText,
+                    body: document.querySelector("textarea").value,
                     method: "POST"
                 });
 
