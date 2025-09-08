@@ -9,7 +9,7 @@ CREATE TABLE IF NOT EXISTS Messages (
 `);
 
 const insert = db.prepare("INSERT INTO Messages VALUES (?)");
-const query = db.prepare("SELECT * FROM Messages");
+const query = db.prepare("SELECT Message FROM Messages");
 
 const html = `
 <!DOCTYPE html>
