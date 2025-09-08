@@ -31,10 +31,12 @@ Bun.serve({
     routes: {
         "/": {
             "POST": async req => {
-                if (!req.body) return new Response("no body?", { headers: { "Access-Control-Allow-Origin": "*" } });
+                const text = (await req.text()).trim();
 
-                const safe = he.encode(await req.body.text());
-                insert.run(safe);
+                if (text.length != 0) {
+                    const safe = he.encode(await req.text());
+                    insert.run(safe);
+                }
 
                 return new Response("donezo funzo", { headers: { "Access-Control-Allow-Origin": "*" } });
             },
