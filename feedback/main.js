@@ -33,6 +33,8 @@ Bun.serve({
             "POST": async req => {
                 const text = (await req.text()).trim();
 
+                console.log(text);
+                
                 if (text.length != 0) {
                     const safe = he.encode(await req.text());
                     insert.run(safe);
