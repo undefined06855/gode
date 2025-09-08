@@ -57,7 +57,7 @@ Bun.serve({
     direction="right"
     style="
         padding-left: ${i*20}px;
-        font-size: ${(-(message.Message.length ** 2 / 60000) + 25) * Math.max(0.8, Math.random())}px;
+        font-size: ${(-(message.Message.length ** 2 / 100000) + 25)}px;
         margin-bottom: 10px;
     "
 >
