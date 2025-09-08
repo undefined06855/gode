@@ -55,7 +55,11 @@ Bun.serve({
     behavior="alternate"
     scrolldelay="${Math.random()*500}"
     direction="right"
-    style="padding-left: ${i*20}px; font-size: ${(Math.random() * 30 * (1 - (message.Message.length / 1000)))}px;"
+    style="
+        padding-left: ${i*20}px;
+        font-size: ${(Math.random() * 30 * (1 - (message.Message.length / 1000)))}px;
+        margin-bottom: 10px;
+    "
 >
 ${message.Message.replaceAll("\n", "<br/>")}
 </marquee>
