@@ -78,6 +78,9 @@
             <a href="https://undefined0.dev/"><img src="resources/links.png" alt="discord, twitter, bluesky, documentation, source code" /></a>
             <div style="height: 30px"></div>
             <a href="https://undefined0.dev/"><img src="resources/footer.png" alt="site made by undefined0. thank you to me for the domain!" /></a>
+            <div style="height: 30px"></div>
+            <button class="ignore" id="feedback"><img src="resources/feedback.png" alt="submit feedback"></button>
+            <div style="height: 30px"></div>
         </main>
 
         <div class="overlay-top-left">
@@ -113,6 +116,10 @@
                         image.remove();
                     }, 1000);
                 });
+            });
+
+            document.querySelector("#feedback").addEventListener("click", () => {
+                window.location.href = "https://feedback.gode-sdk.org/";
             });
         </script>
     </body>
