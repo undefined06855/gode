@@ -36,7 +36,7 @@ Bun.serve({
 
                 return new Response("donezo funzo");
             },
-            "GET": new Response.redirect("/feedback")
+            "GET": Response.redirect("/feedback")
         },
 
         "/feedback": req => {
