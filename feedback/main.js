@@ -34,9 +34,9 @@ Bun.serve({
                 const text = (await req.text()).trim();
 
                 console.log(text);
-                
+
                 if (text.length != 0) {
-                    const safe = he.encode(await req.text());
+                    const safe = he.encode(text);
                     insert.run(safe);
                 }
 
