@@ -35,7 +35,7 @@ Bun.serve({
 
                 console.log(text);
 
-                if (text.length > 1000 && text.length != 0) {
+                if (text.length <= 1000 && text.length != 0) {
                     const safe = he.encode(text);
                     insert.run(safe);
                 }
