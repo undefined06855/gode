@@ -53,3 +53,5 @@ Bun.serve({
 
     port: 2003
 });
+
+console.log("Feedback server running on port 2003");
