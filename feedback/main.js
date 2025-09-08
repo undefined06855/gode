@@ -4,7 +4,7 @@ import * as he from "he"
 const db = new Database("messages.sqlite");
 db.run(`
 CREATE TABLE IF NOT EXISTS Messages (
-    Message       STRING PRIMARY KEY
+    Message       STRING
 )
 `);
 
@@ -35,7 +35,7 @@ Bun.serve({
 
                 console.log(text);
 
-                if (text.length != 0) {
+                if (text.length > 1000 && text.length != 0) {
                     const safe = he.encode(text);
                     insert.run(safe);
                 }
@@ -49,7 +49,8 @@ Bun.serve({
             const messages = query.all();
 
             const messagesString = messages.map(
-                message => `<marquee behavior="alternate" scrolldelay="200" direction="right">${message.Message}</marquee>`
+                (message, i) => 
+                        `<marquee behavior="alternate" scrolldelay="200" direction="right" style="padding-left: ${i*20}px">${message.Message}</marquee>`
             ).join("\n");
             
             return new Response(

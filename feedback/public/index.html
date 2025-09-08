@@ -30,7 +30,7 @@
     </head>
     <body>
         <img src="resources/form.png" alt="Feedback Form" />
-        <textarea>
+        <textarea maxlength="1000">
 great website
 
 yours truly,
@@ -46,6 +46,12 @@ yours truly,
                 });
 
                 document.querySelector("button").innerText = "submited";
+
+                document.querySelector("textarea").value = "";
+
+                setTimeout(() => {
+                    window.location.href = "https://feedback-server.gode-sdk.org/"
+                }, 1000);
             });
         </script>
     </body>
