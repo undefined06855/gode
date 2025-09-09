@@ -20,6 +20,18 @@ const html = `
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         
         <title>Feedback</title>
+
+        <style>
+            blink {
+                animation: blink-animation 1s steps(2, start) infinite;
+            }
+
+            @keyframes blink-animation {
+                to {
+                    visibility: hidden;
+                }
+            }
+        </style>
     </head>
     <body>
         {{{content}}}
