@@ -63,7 +63,7 @@ ${message.includes("blink") ? "<blink>" : ""}
         margin-bottom: 10px;
     "
 >
-${message.Message.replaceAll("\n", "<br/>")}
+${message.replaceAll("\n", "<br/>")}
 </marquee>
 ${message.includes("blink") ? "</blink>" : ""}
                         ` }
