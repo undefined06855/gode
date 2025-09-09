@@ -46,28 +46,31 @@ Bun.serve({
         },
 
         "/feedback": req => {
-            const messages = query.all();
+            const rows = query.all();
 
-            const messagesString = messages.map(
-                (message, i) => 
-                        `
+            const htmlString = rows.map(
+                (cell, i) => {
+                    let message = cell.Message
+                    return `
+${message.includes("blink") ? "<blink>" : ""}
 <marquee
     behavior="alternate"
     scrolldelay="${Math.random()*500}"
     direction="right"
     style="
         padding-left: ${i*20}px;
-        font-size: ${(-(message.Message.length ** 2 / 100000) + 25)}px;
+        font-size: ${(-(message.length ** 2 / 100000) + 25)}px;
         margin-bottom: 10px;
     "
 >
 ${message.Message.replaceAll("\n", "<br/>")}
 </marquee>
-                        `
+${message.includes("blink") ? "</blink>" : ""}
+                        ` }
             ).join("\n");
             
             return new Response(
-                html.replace("{{{content}}}", messagesString),
+                html.replace("{{{content}}}", htmlString),
                 {
                     headers: { "Content-Type": "text/html", "Access-Control-Allow-Origin": "*" }
                 }
