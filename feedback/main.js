@@ -62,7 +62,7 @@ Bun.serve({
 
             const htmlString = rows.map(
                 (cell, i) => {
-                    let message = cell.Message
+                    let message = cell.Message;
                     return `
 ${message.includes("blink") ? "<blink>" : ""}
 <marquee
@@ -78,7 +78,7 @@ ${message.includes("blink") ? "<blink>" : ""}
 ${message.replaceAll("\n", "<br/>")}
 </marquee>
 ${message.includes("blink") ? "</blink>" : ""}
-                        ` }
+                        `; }
             ).join("\n");
             
             return new Response(
