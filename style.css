@@ -15,6 +15,11 @@ body {
     background-size: 100%;
 }
 
+main {
+    animation: spinny 10s linear 0s infinite;
+
+}
+
 .swelvybg-bottom {
     width: 100%;
 }
@@ -139,7 +144,7 @@ button {
     }
 }
 
-.soggy-overlay {
+.soggy-overlay, #evil-overlay {
     position: fixed;
     top: 0;
     left: 0;
@@ -147,7 +152,18 @@ button {
     height: 100vh;
 
     pointer-events: none;
+}
 
+.soggy-overlay {
     opacity: 0;
     animation: flashbang 1s linear;
+}
+
+#evil-overlay {
+    background-color: rgb(255, 74, 74);
+    mix-blend-mode: multiply;
+}
+
+.evil {
+    translate: -60px -160px;
 }
