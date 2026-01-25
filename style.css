@@ -16,8 +16,7 @@ body {
 }
 
 main {
-    animation: spinny 10s linear 0s infinite;
-
+    animation: spinny 6s linear 0s infinite;
 }
 
 .swelvybg-bottom {
@@ -79,11 +78,11 @@ button {
 
 @keyframes spinny {
     from {
-        transform: rotate(0deg);
+        transform: rotate(0deg) skewX(-40deg);
     }
 
     to {
-        transform: rotate(3turn);
+        transform: rotate(3turn) skewX(40deg);
     }
 }
 
