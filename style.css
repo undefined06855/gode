@@ -15,10 +15,6 @@ body {
     background-size: 100%;
 }
 
-main {
-    animation: spinny 6s linear 0s infinite;
-}
-
 .swelvybg-bottom {
     width: 100%;
 }
@@ -78,11 +74,11 @@ button {
 
 @keyframes spinny {
     from {
-        transform: rotate(0deg) skewX(-40deg);
+        transform: rotate(0deg);
     }
 
     to {
-        transform: rotate(3turn) skewX(40deg);
+        transform: rotate(3turn);
     }
 }
 
@@ -143,7 +139,7 @@ button {
     }
 }
 
-.soggy-overlay, #evil-overlay {
+.soggy-overlay {
     position: fixed;
     top: 0;
     left: 0;
@@ -151,18 +147,7 @@ button {
     height: 100vh;
 
     pointer-events: none;
-}
 
-.soggy-overlay {
     opacity: 0;
     animation: flashbang 1s linear;
-}
-
-#evil-overlay {
-    background-color: rgb(255, 74, 74);
-    mix-blend-mode: multiply;
-}
-
-.evil {
-    translate: -60px -160px;
 }

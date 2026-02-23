@@ -12,8 +12,8 @@
 
         <meta property="og:url" content="https://gode-sdk.org/" />
         <meta property="og:type" content="website" />
-        <meta property="og:title" content="EVIL Gode - NO Mods for Geometry Dash" />
-        <meta property="og:description" content="Main page for EVIL Gode, the LEAST popular mod loader for Geometry Dash with NO 2.208 support!!!!!" />
+        <meta property="og:title" content="Gode - NO Mods for Geometry Dash" />
+        <meta property="og:description" content="Main page for Gode, the LEAST popular mod loader for Geometry Dash" />
         <meta property="og:image" content="https://gode-sdk.org/resources/embed.png" /> <!-- this website is better than geode-sdk.org because it has an image in its embed and geode doesnt -->
 
         <link rel="stylesheet" href="style.css" />
@@ -22,7 +22,6 @@
         <main>
             <div style="height: 85px"></div>
             <img src="resources/geode.png" alt="Geode" class="spin" />
-            <img src="resources/evil.png" alt="EVIL" class="evil" />
             <div style="height: 50px"></div>
             <img src="resources/subtitle.png" alt="bringing mod support to geometry dash" />
 
@@ -94,20 +93,20 @@
             <button><img src="resources/username.png" alt="uhhh bob or something idk what your name is" /></button>
         </div>
 
-        <div id="evil-overlay">
+        <div id="soggy-overlay">
         </div>
 
         <script>
             document.querySelectorAll("button").forEach(button => {
                 if (button.classList.contains("ignore")) return;
-
+                
                 button.addEventListener("click", event => {
                     window.open("steam://run/322170");
                 });
             });
 
             const sog = new Image();
-            sog.src = "resources/evil-sog.png";
+            sog.src = "resources/cat.png";
             sog.addEventListener("load", () => {
                 document.querySelector("#soggy").addEventListener("click", () => {
                     const image = sog.cloneNode();
@@ -122,10 +121,6 @@
             document.querySelector("#feedback").addEventListener("click", () => {
                 window.location.href = "https://feedback.gode-sdk.org/";
             });
-
-            setTimeout(() => {
-                alert("Because Geode has NO support for 2.208, Gode has become EVIL!!!!!!");
-            }, 200);
         </script>
     </body>
 </html>
