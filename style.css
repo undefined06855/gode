@@ -151,3 +151,27 @@ button {
     opacity: 0;
     animation: flashbang 1s linear;
 }
+
+@keyframes pridescroll {
+    from {
+        background-position-y: 0px;
+    }
+
+    to {
+        background-position-y: 100vh;
+    }
+}
+
+#pride {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+
+    background-image: url("resources/pride.png");
+    background-size: 100% 100%;
+    mix-blend-mode: multiply;
+
+    animation: pridescroll 5s linear 0s infinite forwards running;
+}
