@@ -174,4 +174,6 @@ button {
     mix-blend-mode: multiply;
 
     animation: pridescroll 5s linear 0s infinite forwards running;
+
+    pointer-events: none;
 }
